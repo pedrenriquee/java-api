@@ -1,6 +1,5 @@
 package com.pedrohenrique.todosimple.models;
 
-import jakarta.annotation.Generated;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,10 +10,8 @@ import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
@@ -24,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonProperty.Access;
 public class User {
     public interface CreateUser {}
     public interface UpdateUser {}
-
+     
     public static final String TABLE_NAME = "user";
     
     @Id
@@ -48,10 +45,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Task> tasks = new ArrayList<Task> ();
 
-
     public User() {
     }
-
 
     public User(long id, String username, String password) {
         this.id = id;
@@ -59,7 +54,6 @@ public class User {
         this.password = password;
     }
     
-
     public long getId() {
         return this.id;
     }
@@ -92,7 +86,6 @@ public class User {
         this.tasks = tasks;
     }
 
-
     /*codigo base fornecido pelo java generators */
     @Override
     public int hashCode() {
@@ -103,7 +96,6 @@ public class User {
         result = prime * result + ((password == null) ? 0 : password.hashCode());
         return result;
     }
-
 
     @Override
     public boolean equals(Object obj) {
