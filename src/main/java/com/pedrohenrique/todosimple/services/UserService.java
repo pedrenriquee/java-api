@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.pedrohenrique.todosimple.models.User;
-import com.pedrohenrique.todosimple.repositories.TaskRepository;
 import com.pedrohenrique.todosimple.repositories.UserRespository;
 
 @Service
@@ -13,9 +12,6 @@ public class UserService {
 
     @Autowired
     private UserRespository userRespository;
-
-    @Autowired
-    private TaskRepository taskRepository;
 
     
     public User findById(Long id) {
@@ -32,7 +28,6 @@ public class UserService {
         //caso o jpa não consiga gerar novos ids provalvemente o erro está aqui
         //user.setId( null);
         obj = this.userRespository.save(obj);
-        this.taskRepository.saveAll(obj.getTasks());
         return obj;
     }
 
