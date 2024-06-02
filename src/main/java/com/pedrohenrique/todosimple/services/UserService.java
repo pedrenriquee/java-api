@@ -24,7 +24,7 @@ public class UserService {
     }
 
     @Transactional
-    public User create(User obj, User user) {
+    public User create(User obj) {
         //caso o jpa não consiga gerar novos ids provalvemente o erro está aqui
         //user.setId( null);
         obj = this.userRespository.save(obj);
