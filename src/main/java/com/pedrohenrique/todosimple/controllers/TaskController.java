@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,12 +38,13 @@ public class TaskController {
         
     }
 
+    /* Não entendi a implementação dessa task 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Task>> findAllByUserId(@PathVariable Long userId){
         List<Task> objs = this.taskService.findAllByUserid(userId);
-        return ResponseEntity.ok().body(objs);
+        return ResponseEntity.ok().body(objs);   } */
         
-    }
+  
 
     @PostMapping
     @Validated
@@ -55,6 +57,8 @@ public class TaskController {
 
     }
 
+    @PutMapping("/{id}")
+    @Validated
     public ResponseEntity<Void> update(@Valid @RequestBody Task obj, @PathVariable Long id){
         obj.setId(id);
         this.taskService.update(obj);
