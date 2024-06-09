@@ -38,11 +38,10 @@ public class TaskController {
         
     }
 
-    /* Não entendi a implementação dessa task 
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<Task>> findAllByUserId(@PathVariable Long userId){
         List<Task> objs = this.taskService.findAllByUserid(userId);
-        return ResponseEntity.ok().body(objs);   } */
+        return ResponseEntity.ok().body(objs);   } 
         
   
 
